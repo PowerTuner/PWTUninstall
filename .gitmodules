@@ -1,0 +1,3 @@
+[submodule "src/external/libPWTWin32"]
+	path = src/external/libPWTWin32
+	url = https://github.com/PowerTuner/libPWTWin32
