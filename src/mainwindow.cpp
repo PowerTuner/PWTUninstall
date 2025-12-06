@@ -153,20 +153,11 @@ void MainWindow::onUninstallResult(const bool res, const QString &installPath) {
         uninstallThd = nullptr;
 
         if (deleteDataChk->isChecked()) {
-            const QString appDataPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
-            QDir clientData {QString("%1/PowerTunerClient").arg(appDataPath)};
-            QDir consoleData {QString("%1/PowerTunerConsole").arg(appDataPath)};
-            QDir cliData {QString("%1/PowerTunerCLI").arg(appDataPath)};
+            QDir appDataPath {QString("%1/PowerTuner").arg(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation))};
             QDir daemonData {R"(C:\ProgramData\PowerTunerDaemon)"};
 
-            if (!clientData.removeRecursively())
-                logsTx->append("failed to delete desktop client user data");
-
-            if (!consoleData.removeRecursively())
-                logsTx->append("failed to delete console client user data");
-
-            if (!cliData.removeRecursively())
-                logsTx->append("failed to delete cli client user data");
+            if (!appDataPath.removeRecursively())
+                logsTx->append("failed to delete clients user data");
 
             if (!daemonData.removeRecursively())
                 logsTx->append("failed to delete service user data");
