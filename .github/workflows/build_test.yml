@@ -12,6 +12,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: 'true'
+        
     - uses: jurplel/install-qt-action@v4
       with:
         version: '6.10.1'
