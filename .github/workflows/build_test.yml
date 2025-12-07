@@ -11,9 +11,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         submodules: 'true'
+        token: ${{secrets.GTK}}
         
     - uses: jurplel/install-qt-action@v4
       with:
