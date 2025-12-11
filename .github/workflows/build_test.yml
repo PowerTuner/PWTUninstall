@@ -9,10 +9,10 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@main
       with:
         submodules: 'true'
-        
+
     - uses: jurplel/install-qt-action@v4
       with:
         version: '6.10.1'
